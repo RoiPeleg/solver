@@ -9,14 +9,14 @@
 #include <iostream>
 #include <complex>
 #include "solver.hpp"
-
 using namespace std;
 using solver::solve, solver::RealVariable, solver::ComplexVariable;
 
 int main() {
     RealVariable x;
 
-    cout << solve(2*x-4 == 10) << endl;  // 7
+    
+    cout << solve(  2*x - 4 == 10) << endl;  // 7
     cout << solve((x^2) == 16) << endl;   // 4 or -4
     try {
         cout << solve((x^2) == -16) << endl;
