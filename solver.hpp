@@ -1,9 +1,7 @@
 #pragma once
 using namespace std;
+#include <complex>
 namespace solver{
-    double& solve(RealVariable& x);
-    double& solve(ComplexVariable& x);
-    
     class RealVariable{     
         public:  
         RealVariable(){}
@@ -45,7 +43,9 @@ namespace solver{
 
     class ComplexVariable{
         public:
-        ComplexVariable(){}
+        ComplexVariable(){
+
+        }
         friend ComplexVariable& operator==(const ComplexVariable& other,const ComplexVariable& other2);
         friend ComplexVariable& operator==(const ComplexVariable& other,const int& other2);
         friend ComplexVariable& operator==(const int& other,const ComplexVariable& other2);
@@ -64,8 +64,8 @@ namespace solver{
         friend ComplexVariable operator+(const double& X,const ComplexVariable& Y);
         friend ComplexVariable operator+(const ComplexVariable& X,const double& Y);
         friend ComplexVariable operator+(const ComplexVariable& X,const ComplexVariable& Y);
-        friend ComplexVariable operator+(const std::complex<double>& X,const ComplexVariable& Y);
-        friend ComplexVariable operator+(const ComplexVariable& X,const std::complex<double>& Y);
+        friend ComplexVariable operator+(const complex<double>& X,const ComplexVariable& Y);
+        friend ComplexVariable operator+(const ComplexVariable& X,const complex<double>& Y);
 
 
 
@@ -82,4 +82,7 @@ namespace solver{
 
         friend ComplexVariable& operator^(const ComplexVariable& X, const int& Y);
     };
+
+    double solve(RealVariable x);
+    complex<double> solve(ComplexVariable& x);
 }
