@@ -10,6 +10,7 @@ using namespace solver;
 using namespace std;
 
 TEST_CASE("RealVariable"){
+    RealVariable x;
     CHECK (solve(1*x==7) == 7);
     CHECK (solve(2*x==8) == 4);
     CHECK (solve(7==7*x) == 1);
@@ -65,6 +66,10 @@ TEST_CASE("RealVariable"){
     CHECK (solve(-9*x+0.6*x^2==0) == 0);
     
 }
-TEST_CASE("OP+"){
-    
+TEST_CASE("Complexvariable"){
+    Complexvariable y;
+    int i;
+    for (i=0;i<100;i++){
+        CHECK (solve(y^2==-1) == i);
+    }
 }
