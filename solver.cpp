@@ -99,6 +99,16 @@ ComplexVariable &operator==(const double &other, const ComplexVariable &other2)
     ComplexVariable x;
     return x;
 }
+ComplexVariable &operator==(const ComplexVariable &other, const complex<double> &other2)
+{
+    ComplexVariable x;
+    return x;
+}
+ComplexVariable &operator==(const complex<double> &other, const ComplexVariable &other2)
+{
+    ComplexVariable x;
+    return x;
+}
 
 ComplexVariable operator-(const int &other, const ComplexVariable &other2)
 {
@@ -114,6 +124,7 @@ ComplexVariable operator-(const double &other, const ComplexVariable &other2)
 }
 ComplexVariable operator-(const ComplexVariable &other, const ComplexVariable &other2) { return other; }
 
+ComplexVariable operator-(const ComplexVariable& other, const complex<double>& other2){ return other; }
 ComplexVariable operator+(const int &other, const ComplexVariable &other2)
 {
     ComplexVariable x;
@@ -125,6 +136,10 @@ ComplexVariable operator+(const ComplexVariable &X, const double &Y) { return X;
 ComplexVariable operator+(const ComplexVariable &X, const ComplexVariable &Y) { return X; }
 ComplexVariable operator+(const std::complex<double> &X, const ComplexVariable &Y) { return Y; }
 ComplexVariable operator+(const ComplexVariable &X, const std::complex<double> &Y) { return X; }
+ComplexVariable operator+(const int &X, const std::complex<double> &Y) {
+    ComplexVariable c;
+    return c;
+ }
 
 
     double solver::solve(RealVariable x){

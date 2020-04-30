@@ -51,6 +51,8 @@ namespace solver{
         friend ComplexVariable& operator==(const int& other,const ComplexVariable& other2);
         friend ComplexVariable& operator==(const ComplexVariable& other,const double& other2);
         friend ComplexVariable& operator==(const double& other,const ComplexVariable& other2);
+        friend ComplexVariable& operator==(const ComplexVariable& other,const complex<double>& other2);
+        friend ComplexVariable& operator==(const complex<double>& other,const ComplexVariable& other2);
         
 
         friend ComplexVariable operator-(const int& other, const ComplexVariable& other2);
@@ -58,6 +60,7 @@ namespace solver{
         friend ComplexVariable operator-(const ComplexVariable& other, const double& other2);
         friend ComplexVariable operator-(const double& other, const ComplexVariable& other2);
         friend ComplexVariable operator-(const ComplexVariable& other, const ComplexVariable& other2);
+        friend ComplexVariable operator-(const ComplexVariable& other, const complex<double>& other2);
         
         friend ComplexVariable operator+(const int& other, const ComplexVariable& other2);
         friend ComplexVariable operator+(const ComplexVariable& other, const int& other2);
@@ -67,14 +70,11 @@ namespace solver{
         friend ComplexVariable operator+(const complex<double>& X,const ComplexVariable& Y);
         friend ComplexVariable operator+(const ComplexVariable& X,const complex<double>& Y);
 
-
-
         friend ComplexVariable operator*(const int& X,const ComplexVariable& Y);
         friend ComplexVariable operator*(const ComplexVariable& X,const int& Y);
         friend ComplexVariable operator*(const double& X,const ComplexVariable& Y);
         friend ComplexVariable operator*(const ComplexVariable& X,const double& Y);
 
-        
         friend ComplexVariable operator/(const int& X,const ComplexVariable& Y);
         friend ComplexVariable operator/(const ComplexVariable& X,const int& Y);
         friend ComplexVariable operator/(const double& X,const ComplexVariable& Y);
