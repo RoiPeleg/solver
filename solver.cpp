@@ -30,35 +30,52 @@ RealVariable &operator==(const RealVariable &other, const RealVariable &other2)
     RealVariable X;
     return X;
 }
-RealVariable operator-(const int &other, const RealVariable &other2) { return other2; }
-RealVariable operator-(const RealVariable &other, const int &other2) { return other; }
-RealVariable operator-(const RealVariable &other, const double &other2) { return other; }
-RealVariable operator-(const double &other, const RealVariable &other2) { return other2; }
-RealVariable operator-(const RealVariable &other, const RealVariable &other2) { return other; }
+RealVariable &operator-(const int &other,  RealVariable &other2) { 
+    other2.getc() = -other;
+    return other2; }
+RealVariable &operator-( RealVariable &other, const int &other2) { 
+    other2 - other;
+    return other; }
+RealVariable &operator-( RealVariable &other, const double &other2) { return other; }
+RealVariable &operator-(const double &other,  RealVariable &other2) { return other2; }
+RealVariable &operator-( RealVariable &other,  RealVariable &other2) { return other; }
 
-RealVariable operator+(const int &other, const RealVariable &other2) { return other2; }
-RealVariable operator+(const RealVariable &other, const int &other2) { return other; }
-RealVariable operator+(const double &X, const RealVariable &Y) { return Y; }
-RealVariable operator+(const RealVariable &X, const double &Y) { return X; }
-RealVariable operator+(const RealVariable &X, const RealVariable &Y) { return Y; }
+RealVariable &operator+(const int &other,  RealVariable &other2) { 
+    other2.getc() = other;
+    return other2; }
+RealVariable &operator+( RealVariable &other, const int &other2) {
+    other2 + other;
+     return other; }
+RealVariable &operator+( const double &X,  RealVariable &Y) { 
+    Y.getc() = X;
+    return Y; }
+RealVariable &operator+( RealVariable &X, const double &Y) { 
+    Y + X;
+    return X; }
+RealVariable &operator+( RealVariable &X,  RealVariable &Y) { return Y; }
 
-RealVariable operator*(const int &X, const RealVariable &Y) { return Y; }
-RealVariable operator*(const RealVariable &X, const int &Y) { return X; }
-RealVariable operator*(const double &X, const RealVariable &Y) { return Y; }
-RealVariable operator*(const RealVariable &X, const double &Y) { return X; }
+RealVariable &operator*( int &X,  RealVariable &Y) { 
+   Y.getb() = X;
+    return Y; }
+RealVariable& operator*( RealVariable &X, const int &Y) { 
+    operator*(Y,X);
+    return X; }
+RealVariable& operator*(const double &X,  RealVariable &Y) { return Y; }
+RealVariable& operator*( RealVariable &X, const double &Y) { return X; }
 
-RealVariable operator/(const int &X, const RealVariable &Y) { return Y; }
-RealVariable operator/(const RealVariable &X, const int &Y) { return X; }
-RealVariable operator/(const double &X, const RealVariable &Y) { return Y; }
-RealVariable operator/(const RealVariable &X, const double &Y) { return X; }
+RealVariable& operator/(const int &X,  RealVariable &Y) { return Y; }
+RealVariable& operator/( RealVariable &X, const int &Y) { return X; }
+RealVariable& operator/(const double &X,  RealVariable &Y) { return Y; }
+RealVariable& operator/( RealVariable &X, const double &Y) { return X; }
 
-RealVariable &operator^(const RealVariable &X, const int &Y)
+RealVariable &operator^( RealVariable &X, const int &Y)
 {
-    RealVariable Z;
-    return Z;
+    if(Y>2)throw new runtime_error("unsupported exp");
+    X.geta = Y;
+    return X;
 }
 
-
+//coplex ops
 ComplexVariable operator*(const int &X, const ComplexVariable &Y) { return Y; }
 ComplexVariable operator*(const ComplexVariable &X, const int &Y) { return X; }
 ComplexVariable operator*(const double &X, const ComplexVariable &Y) { return Y; }
