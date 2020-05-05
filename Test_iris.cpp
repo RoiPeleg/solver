@@ -1,5 +1,6 @@
 #include "doctest.h"
 #include "solver.hpp"
+#include <iostream>
 
 using namespace std;
 using solver::solve, solver::RealVariable, solver::ComplexVariable;
@@ -64,6 +65,7 @@ TEST_CASE("Test")
      CHECK(solve((x^2) == 7744) ==88);
      CHECK(solve((x^2) == 12321) ==111);  
 
+     //cout << ((x^2) + 2*x + 4.0 == 20 + 6.0*x/2 - x).geta() << " " << ((x^2) + 2*x + 4.0 == 20 + 6.0*x/2 - x).getb() << " " << ((x^2) + 2*x + 4.0 == 20 + 6.0*x/2 - x).getc()<<endl;
      CHECK(solve((x^2) + 2*x + 4.0 == 20 + 6.0*x/2 - x) ==4);   
      CHECK(solve((x^2) + 3*x + 6.0 == 12 + 6.0*x/2 - x) ==2);//16
      CHECK(solve((x^2) + 2*x + 5.0 == 27 + 3.0*x/2 - x) ==4);//29
